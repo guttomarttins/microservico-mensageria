@@ -1,12 +1,10 @@
-package br.com.gt.msclient;
+package br.com.gt.mscloudgateway;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @SpringBootTest
-@EnableEurekaClient
-class MsclientApplicationTests {
+class MscloudgatewayApplicationTests {
 
 	@Test
 	void contextLoads() {
