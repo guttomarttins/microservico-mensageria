@@ -1,6 +1,12 @@
 spring:
   application:
     name: eurekaserver
+  security:
+    basic:
+      enabled: true
+    user:
+      name: eureka-user
+      password: 2wert-9iuyr-8fvcd-4doki
 
 server:
   port: 8761

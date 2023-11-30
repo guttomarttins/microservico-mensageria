@@ -1,6 +1,7 @@
 package br.com.gt.msclient.application;
 
 import br.com.gt.msclient.application.representation.ClientSaveRequest;
+import br.com.gt.msclient.domain.Client;
 import br.com.gt.msclient.infra.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
+import java.util.List;
 
 @RestController
 @RequestMapping("clients")
@@ -17,12 +19,6 @@ import java.net.URI;
 public class ClientResource {
 
     private final ClientService service;
-
-    @GetMapping
-    public String status(){
-        log.info("Obtendo o status do microservice de clientes");
-        return "ok";
-    }
 
     @PostMapping
     public ResponseEntity save(@RequestBody ClientSaveRequest request){
@@ -43,5 +39,10 @@ public class ClientResource {
             return ResponseEntity.notFound().build();
         }
         return ResponseEntity.ok(cliente);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> list(){
+        return ResponseEntity.ok(service.findAll());
     }
 }
